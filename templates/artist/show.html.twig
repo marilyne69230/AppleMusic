@@ -22,6 +22,23 @@
         </tbody>
     </table>
 
+    <h2>Lists of movies</h2>
+
+    <table class="table">
+        <tbody>
+            {% for music in artist.musics %}
+            <tr>
+                <th>Title</th>
+                <td>{{ music.name }}</td>
+            </tr>
+            <tr>
+                <th>ReleaseDate</th>
+                <td>{{ music.releaseDate ? music.releaseDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
     <a href="{{ path('app_artist_index') }}">back to list</a>
 
     <a href="{{ path('app_artist_edit', {'id': artist.id}) }}">edit</a>
